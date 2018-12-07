@@ -11,7 +11,9 @@ set shiftwidth=2           "自動インデントで入る空白数
 set softtabstop=0          "キーボードから入るタブの数
 set title                  " ウインドウのタイトルバーにファイルのパス情報等を表示する
 set number                 " 行番号を表示する
+set wildmenu               " wildnemuを有効に
 inoremap <silent> jj <ESC> " インサートモードでESCをjjに割り当て
+cnoremap count %s/./&/g    " countで文字数をカウント
 
 if has("autocmd")
   "ファイルタイプの検索を有効にする
@@ -95,14 +97,14 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats='dvi,pdf'
 "let g:Tex_FormatDependency_pdf = 'pdf'
 "let g:Tex_FormatDependency_pdf = 'dvi,pdf'
-"let g:Tex_CompileRule_pdf = 'ptex2pdf -u -l -ot "-synctex=1
-"-interaction=nonstopmode -file-line-error-style" $*'
-""let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+let g:Tex_CompileRule_pdf = 'ptex2pdf -u -l -ot "-synctex=1 -interaction=nonstopmode -file-line-error-style" $*'
+"let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
 let g:Tex_CompileRule_dvi = 'uplatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
 let g:Tex_BibtexFlavor = 'upbibtex'
 let g:Tex_MakeIndexFlavor = 'upmendex $*.idx'
 let g:Tex_UseEditorSettingInDVIViewer = 1
 let g:Tex_ViewRule_pdf = 'xdg-open'
+let g:Tex_AutoFolding = 0
 "let g:Tex_ViewRule_pdf = 'evince'
 ""let g:Tex_ViewRule_pdf = 'okular --unique'
 "let g:Tex_ViewRule_pdf = 'zathura -x "vim --servername synctex -n
