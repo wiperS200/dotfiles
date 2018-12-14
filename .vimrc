@@ -14,6 +14,7 @@ set number                 " 行番号を表示する
 set wildmenu               " wildnemuを有効に
 inoremap <silent> jj <ESC> " インサートモードでESCをjjに割り当て
 cnoremap count %s/./&/g    " countで文字数をカウント
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 if has("autocmd")
   "ファイルタイプの検索を有効にする
