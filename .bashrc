@@ -91,7 +91,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias gnome='gnome-terminal -e uim-fep'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -124,3 +123,9 @@ alias pbpaste='xsel --clipboard --output'
 # WindowsとUbuntuでクリップボードを共有
 alias wcopy='clip.exe'
 alias wpaste='pbpaste.exe'
+
+# GNOME-terminalの略
+alias gnome='gnome-terminal -e uim-fep'
+
+# rmにいちいち確認をさせる
+alias rm='rm -i'
