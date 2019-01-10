@@ -115,17 +115,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# xselの設定
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
-
-# WindowsとUbuntuでクリップボードを共有
-alias wcopy='clip.exe'
-alias wpaste='pbpaste.exe'
-
-# GNOME-terminalの略
-alias gterm='gnome-terminal -e uim-fep'
-
-# rmにいちいち確認をさせる
-alias rm='rm -i'
