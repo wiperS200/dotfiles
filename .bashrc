@@ -125,7 +125,7 @@ alias wcopy='clip.exe'
 alias wpaste='pbpaste.exe'
 
 # GNOME-terminalの略
-alias gnome='gnome-terminal -e uim-fep'
+alias gterm='gnome-terminal -e uim-fep'
 
 # rmにいちいち確認をさせる
 alias rm='rm -i'
