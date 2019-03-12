@@ -67,6 +67,8 @@ if dein#load_state('/home/wiper/.cache/dein')
   " LaTeX
   call dein#add('vim-latex/vim-latex')
 
+  " C言語
+
   " Required:
   call dein#end()
   call dein#save_state()
