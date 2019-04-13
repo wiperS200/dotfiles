@@ -106,7 +106,7 @@ let g:Tex_CompileRule_dvi = 'uplatex -synctex=1 -interaction=nonstopmode -file-l
 let g:Tex_BibtexFlavor = 'upbibtex'
 let g:Tex_MakeIndexFlavor = 'upmendex $*.idx'
 let g:Tex_UseEditorSettingInDVIViewer = 1
-let g:Tex_ViewRule_pdf = 'xdg-open'
+"let g:Tex_ViewRule_pdf = 'xdg-open'
 let g:Tex_AutoFolding = 0
 "let g:Tex_ViewRule_pdf = 'evince'
 ""let g:Tex_ViewRule_pdf = 'okular --unique'
@@ -114,6 +114,6 @@ let g:Tex_AutoFolding = 0
 "--remote-silent +\%{line} \%{input}"'
 ""let g:Tex_ViewRule_pdf = 'qpdfview --unique'
 "let g:Tex_ViewRule_pdf = 'texworks'
-""let g:Tex_ViewRule_pdf = 'mupdf'
+let g:Tex_ViewRule_pdf = 'mupdf'
 "let g:Tex_ViewRule_pdf = 'firefox -new-window'
 ""let g:Tex_ViewRule_pdf = 'chromium --new-window'

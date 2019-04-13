@@ -3,10 +3,7 @@
 # for examples
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+[[ $- != *i* ]] && return
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -31,9 +28,9 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${arch_chroot:-}" ] && [ -r /etc/arch_chroot ]; then
-    arch_chroot=$(cat /etc/arch_chroot)
-fi
+#if [ -z "${arch_chroot:-}" ] && [ -r /etc/arch_chroot ]; then
+#    arch_chroot=$(cat /etc/arch_chroot)
+#fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -122,3 +119,9 @@ alias pbpaste='xsel --clipboard --output'
 
 # rmにいちいち確認をさせる
 alias rm='rm -i'
+
+#source ~/.bash_profile
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+export PATH=/home/wiper/anaconda3/bin:$PATH
