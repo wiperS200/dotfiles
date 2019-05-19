@@ -124,4 +124,4 @@ alias rm='rm -i'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-export PATH=/home/wiper/anaconda3/bin:$PATH
+#export PATH="$HOME/anaconda3/bin:$PATH"
