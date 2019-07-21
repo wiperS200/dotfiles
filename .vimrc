@@ -43,15 +43,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/wiper/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/wiper/.cache/dein')
-  call dein#begin('/home/wiper/.cache/dein')
+if dein#load_state('$HOME/.cache/dein')
+  call dein#begin('$HOME/.cache/dein')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/wiper/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('$HOME/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here like this:
   call dein#add('Shougo/neosnippet.vim')
@@ -68,6 +68,10 @@ if dein#load_state('/home/wiper/.cache/dein')
   call dein#add('vim-latex/vim-latex')
 
   " C言語
+
+  " ステータスバーをシュッとするやつ
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
 
   " Required:
   call dein#end()
@@ -117,3 +121,8 @@ let g:Tex_AutoFolding = 0
 "let g:Tex_ViewRule_pdf = 'mupdf'
 let g:Tex_ViewRule_pdf = 'firefox -new-window'
 "let g:Tex_ViewRule_pdf = 'chromium --new-window'
+
+""
+""Airline
+""
+let g:airline_theme = 'base16_atelierdune'
