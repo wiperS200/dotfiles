@@ -126,3 +126,4 @@ let g:Tex_ViewRule_pdf = 'firefox -new-window'
 ""Airline
 ""
 let g:airline_theme = 'base16_atelierdune'
+let g:airline_powerline_fonts = 1
