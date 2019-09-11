@@ -73,6 +73,9 @@ if dein#load_state('$HOME/.cache/dein')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
 
+  " vim内でGit操作するやつ
+  call dein#add('tpope/vim-fugitive')
+
   " Required:
   call dein#end()
   call dein#save_state()
