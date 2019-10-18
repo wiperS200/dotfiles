@@ -23,6 +23,7 @@ if has("autocmd")
   filetype indent on
   "sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtabの略
   autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType cpp         setlocal sw=4 sts=4 ts=4 et
   autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType js          setlocal sw=4 sts=4 ts=4 et
@@ -75,6 +76,10 @@ if dein#load_state('$HOME/.cache/dein')
 
   " vim内でGit操作するやつ
   call dein#add('tpope/vim-fugitive')
+
+  " R
+  call dein#add('jalvesaq/Nvim-R')
+
 
   " Required:
   call dein#end()
@@ -130,3 +135,9 @@ let g:Tex_ViewRule_pdf = 'firefox -new-window'
 ""
 let g:airline_theme = 'base16_atelierdune'
 let g:airline_powerline_fonts = 1
+
+""
+""Nvim-R
+""
+let R_rconsole_width = 57
+let R_min_editor_width = 18
