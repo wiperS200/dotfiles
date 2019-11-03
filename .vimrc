@@ -80,6 +80,8 @@ if dein#load_state('$HOME/.cache/dein')
   " R
   call dein#add('jalvesaq/Nvim-R')
 
+  " 自動括弧
+  call dein#add('cohama/lexima.vim')
 
   " Required:
   call dein#end()
