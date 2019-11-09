@@ -83,6 +83,17 @@ if dein#load_state('$HOME/.cache/dein')
   " 自動括弧
   call dein#add('cohama/lexima.vim')
 
+  " 総合補完
+  call dein#add('Shougo/deoplete.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+  let g:deoplete#enable_at_startup = 1
+
+  " Ruby補完？
+  call dein#add('takkii/Bignyanco')
+
   " Required:
   call dein#end()
   call dein#save_state()
