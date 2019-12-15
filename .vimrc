@@ -12,6 +12,7 @@ set softtabstop=0          "キーボードから入るタブの数
 set title                  " ウインドウのタイトルバーにファイルのパス情報等を表示する
 set number                 " 行番号を表示する
 set wildmenu               " wildnemuを有効に
+set hls                    " 検索した文字をハイライト
 inoremap <silent> jj <ESC> " インサートモードでESCをjjに割り当て
 cnoremap count %s/./&/g    " countで文字数をカウント
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
@@ -36,6 +37,7 @@ if has("autocmd")
   autocmd FileType scss        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType sass        setlocal sw=4 sts=4 ts=4 et
   autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType rust        setlocal sw=4 sts=4 ts=4 et
 endif
 
 "dein Scripts-----------------------------
@@ -89,7 +91,6 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
-  let g:deoplete#enable_at_startup = 1
 
   " Ruby補完？
   call dein#add('takkii/Bignyanco')
@@ -154,3 +155,30 @@ let g:airline_powerline_fonts = 1
 ""
 let R_rconsole_width = 57
 let R_min_editor_width = 18
+
+""
+""deoplete
+""
+let g:deoplete#enable_at_startup = 1
+highlight Pmenu ctermbg=8 guibg=#606060
+highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
+highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
