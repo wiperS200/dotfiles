@@ -1,9 +1,1 @@
-[user]
-	email = waipuwiper@gmail.com
-	name = wiper
-[core]
-	editor = vim
-[includeIf "gitdir:~/fs/"]
-	path = ~/fs/.gitconfig
-[alias]
-	st = status
+/home/wiper/.gitconfig
