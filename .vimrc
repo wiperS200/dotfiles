@@ -91,9 +91,15 @@ if dein#load_state('$HOME/.cache/dein')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
+  call dein#add('prabirshrestha/async.vim')
+  call dein#add('prabirshrestha/vim-lsp')
+  call dein#add('prabirshrestha/asyncomplete.vim')
+  call dein#add('prabirshrestha/asyncomplete-lsp.vim')
+  call dein#add('mattn/vim-lsp-settings', {'merged': 0})
 
   " Ruby補完？
   call dein#add('takkii/Bignyanco')
+  call dein#add('Shougo/deoplete-rct')
 
   " Required:
   call dein#end()
