@@ -64,11 +64,26 @@
 ## Control + mouse button 2 release event starts rxvt
 #"rxvt"
 #  Control + b:2 + Release
-"xbacklight -inc 5"
-  XF86MonBrightnessUp
+"amixer sset Master mute"
+  XF86AudioMute
+
+"amixer sset Master 5%-"
+  XF86AudioLowerVolume
+
+"amixer sset Master 5%+"
+  XF86AudioRaiseVolume
 
 "xbacklight -dec 5"
   XF86MonBrightnessDown
+
+"xbacklight -inc 5"
+  XF86MonBrightnessUp
+
+"xrandr --output DP2 --above eDP1 --auto"
+  XF86LaunchA
+
+"xrandr --output DP2 --off"
+  XF86Explorer
 
 "gnome-screenshot -a"
   Shift+Print
