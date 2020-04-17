@@ -100,6 +100,9 @@ if dein#load_state('~/.cache/dein')
   " Ruby補完？
   call dein#add('takkii/Bignyanco')
   call dein#add('Shougo/deoplete-rct')
+  
+  " マークダウン
+  call dein#add('skanehira/preview-markdown.vim')
 
   " Required:
   call dein#end()
@@ -188,3 +191,9 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+""
+""preview-markdown
+""
+let g:preview_markdown_vertical = 1
+let g:preview_markdown_auto_update = 1
