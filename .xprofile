@@ -6,3 +6,5 @@ export GTK_IM_MODULE=fcitx
 export DefaultIMModule=fcitx
 
 fcitx-autostart
+
+xinput disable 'Synaptics TM3075-007'
