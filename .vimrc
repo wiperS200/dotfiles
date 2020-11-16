@@ -91,6 +91,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
+  call dein#add('lighttiger2505/deoplete-vim-lsp')
   call dein#add('prabirshrestha/async.vim')
   call dein#add('prabirshrestha/vim-lsp')
   call dein#add('prabirshrestha/asyncomplete.vim')
