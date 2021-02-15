@@ -4,4 +4,5 @@ eval "$(rbenv init -)"
 test -r ~/.bashrc && . ~/.bashrc
 export GOPATH=~/go
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+export TERMINAL=xfce4-terminal
 [[ -z $DISPLAY && XDG_VTNR -eq 1 ]] && exec startx

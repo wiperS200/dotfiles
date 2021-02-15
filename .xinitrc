@@ -64,4 +64,5 @@ fcitx-autostart
 xinput disable 'Synaptics TM3075-007'
 
 xbindkeys
-exec awesome
+#exec awesome
+exec i3
