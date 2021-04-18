@@ -3,7 +3,10 @@
 # for examples
 
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -28,9 +31,9 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
-#if [ -z "${arch_chroot:-}" ] && [ -r /etc/arch_chroot ]; then
-#    arch_chroot=$(cat /etc/arch_chroot)
-#fi
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -54,16 +57,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${arch_chroot:+($arch_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${arch_chroot:+($arch_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${arch_chroot:+($arch_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
 *)
     ;;
@@ -124,23 +127,3 @@ alias rm='rm -i'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-#export PATH="$HOME/anaconda3/bin:$PATH"
-
-#Powerlineの設定
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
- . /usr/lib/python3.8/site-packages/powerline/bindings/bash/powerline.sh
-
-# If not running interactively, do not do anything
-[[ $- != *i*  ]] && return
-[[ -z "$TMUX"  ]] && exec tmux
-
-# TMUX
-if which tmux >/dev/null 2>&1; then
-  #if not inside a tmux session, and if no session is started, start a new session
-  test -z "$TMUX" && (tmux attach || tmux new-session)
-fi
-
-# タッチパッド無効化
-xinput disable 'Synaptics TM3075-007'
