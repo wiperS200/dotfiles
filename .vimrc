@@ -16,6 +16,7 @@ set hls                    " 検索した文字をハイライト
 inoremap <silent> jj <ESC> " インサートモードでESCをjjに割り当て
 cnoremap count %s/./&/g    " countで文字数をカウント
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+colorscheme desert
 
 if has("autocmd")
   "ファイルタイプの検索を有効にする
