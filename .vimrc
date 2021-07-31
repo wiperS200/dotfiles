@@ -14,6 +14,7 @@ set number                 " 行番号を表示する
 set wildmenu               " wildnemuを有効に
 set hls                    " 検索した文字をハイライト
 inoremap <silent> jj <ESC> " インサートモードでESCをjjに割り当て
+inoremap <silent> っｊ <ESC> " インサートモードでESCをjjに割り当て
 cnoremap count %s/./&/g    " countで文字数をカウント
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 colorscheme desert
@@ -105,6 +106,9 @@ if dein#load_state('~/.cache/dein')
   
   " マークダウン
   call dein#add('skanehira/preview-markdown.vim')
+
+  " コマンドモード時にいちいちIME切り替えずに済むやつ
+  call dein#add('lilydjwg/fcitx.vim')
 
   " Required:
   call dein#end()
