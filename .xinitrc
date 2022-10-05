@@ -59,7 +59,7 @@ export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
 export DefaultIMModule=fcitx
 
-fcitx-autostart
+fcitx5 &
 blueman-applet &
 
 xinput disable 'Synaptics TM3075-007'
