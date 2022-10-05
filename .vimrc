@@ -17,6 +17,7 @@ inoremap <silent> jj <ESC> " インサートモードでESCをjjに割り当て
 inoremap <silent> っｊ <ESC> " インサートモードでESCをjjに割り当て
 cnoremap count %s/./&/g    " countで文字数をカウント
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent><Leader>f :<C-u> Defx <CR>
 colorscheme desert
 
 if has("autocmd")
@@ -109,6 +110,13 @@ if dein#load_state('~/.cache/dein')
 
   " コマンドモード時にいちいちIME切り替えずに済むやつ
   call dein#add('lilydjwg/fcitx.vim')
+
+  " defx(NERDTree代替)
+  call dein#add('Shougo/defx.nvim')
+  "if !has('nvim')
+  "  call dein#add('roxma/nvim-yarp')
+  "  call dein#add('roxma/vim-hug-neovim-rpc')
+  "endif
 
   " Required:
   call dein#end()
@@ -204,3 +212,73 @@ endif
 let g:preview_markdown_vertical = 1
 let g:preview_markdown_auto_update = 1
 
+""
+""Defx
+""
+
+autocmd BufWritePost * call defx#redraw()
+autocmd FileType defx call s:defx_my_settings()
+function! s:defx_my_settings() abort
+  " Define mappings
+  nnoremap <silent><buffer><expr> <CR>
+  \ defx#do_action('open')
+  nnoremap <silent><buffer><expr> c
+  \ defx#do_action('copy')
+  nnoremap <silent><buffer><expr> m
+  \ defx#do_action('move')
+  nnoremap <silent><buffer><expr> p
+  \ defx#do_action('paste')
+  nnoremap <silent><buffer><expr> l
+  \ defx#do_action('open')
+  nnoremap <silent><buffer><expr> E
+  \ defx#do_action('open', 'vsplit')
+  nnoremap <silent><buffer><expr> P
+  \ defx#do_action('preview')
+  nnoremap <silent><buffer><expr> o
+  \ defx#do_action('open_tree', 'toggle')
+  nnoremap <silent><buffer><expr> K
+  \ defx#do_action('new_directory')
+  nnoremap <silent><buffer><expr> N
+  \ defx#do_action('new_file')
+  nnoremap <silent><buffer><expr> M
+  \ defx#do_action('new_multiple_files')
+  nnoremap <silent><buffer><expr> C
+  \ defx#do_action('toggle_columns',
+  \                'mark:indent:icon:filename:type:size:time')
+  nnoremap <silent><buffer><expr> S
+  \ defx#do_action('toggle_sort', 'time')
+  nnoremap <silent><buffer><expr> d
+  \ defx#do_action('remove')
+  nnoremap <silent><buffer><expr> r
+  \ defx#do_action('rename')
+  nnoremap <silent><buffer><expr> !
+  \ defx#do_action('execute_command')
+  nnoremap <silent><buffer><expr> x
+  \ defx#do_action('execute_system')
+  nnoremap <silent><buffer><expr> yy
+  \ defx#do_action('yank_path')
+  nnoremap <silent><buffer><expr> .
+  \ defx#do_action('toggle_ignored_files')
+  nnoremap <silent><buffer><expr> ;
+  \ defx#do_action('repeat')
+  nnoremap <silent><buffer><expr> h
+  \ defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> ~
+  \ defx#do_action('cd')
+  nnoremap <silent><buffer><expr> q
+  \ defx#do_action('quit')
+  nnoremap <silent><buffer><expr> <Space>
+  \ defx#do_action('toggle_select') . 'j'
+  nnoremap <silent><buffer><expr> *
+  \ defx#do_action('toggle_select_all')
+  nnoremap <silent><buffer><expr> j
+  \ line('.') == line('$') ? 'gg' : 'j'
+  nnoremap <silent><buffer><expr> k
+  \ line('.') == 1 ? 'G' : 'k'
+  nnoremap <silent><buffer><expr> <C-l>
+  \ defx#do_action('redraw')
+  nnoremap <silent><buffer><expr> <C-g>
+  \ defx#do_action('print')
+  nnoremap <silent><buffer><expr> cd
+  \ defx#do_action('change_vim_cwd')
+endfunction
