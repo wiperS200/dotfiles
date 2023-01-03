@@ -18,3 +18,9 @@ set --universal fish_user_paths $fish_user_paths ~/.rbenv/shims
 if test -z $TMUX
   tmux new-session
 end
+
+# jupyter notebook
+#alias scipy-notebook='sudo docker run -p 8888:8888 -v (pwd):/home/jovyan/work jupyter/scipy-notebook jupyter-notebook'
+alias scipy-notebook='sudo docker run -p 8888:8888 -v (pwd):/home/jovyan/work jupyter/scipy-notebook'
+
+alias whois-jpnic='whois -h whois.nic.ad.jp'

@@ -127,3 +127,9 @@ alias rm='rm -i'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# VcXsrvを使用するための設定
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+
+# jupyter notebook
+alias jupyter-notebook='sudo docker run -p 8888:8888 -v (pwd):/home/jovyan/work jupyter/scipy-notebook jupyter-notebook'
+
